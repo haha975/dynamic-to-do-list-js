@@ -12,10 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const newTask = document.createElement("li");
     newTask.textContent = taskText;
+    newTask.classList.add("task-item"); // ✅ Add styling class
 
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
-    removeBtn.className = "remove-btn";
+    removeBtn.classList.add("remove-btn"); // ✅ Add styling class
+
     removeBtn.onclick = function () {
       taskList.removeChild(newTask);
     };
@@ -25,16 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
     taskInput.value = "";
   }
 
-  // Add task when "Enter" is pressed
+  addButton.addEventListener("click", addTask);
+
   taskInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
       addTask();
     }
   });
-
-  // Add task when button is clicked
-  addButton.addEventListener("click", function () {
-    addTask();
-  });
 });
+
