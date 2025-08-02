@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const newTask = document.createElement("li");
     newTask.textContent = taskText;
-    newTask.classList.add("task-item"); // ✅ Add styling class
+    newTask.classList.add("task-item"); // ✅ Add CSS class
 
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
-    removeBtn.classList.add("remove-btn"); // ✅ Add styling class
+    removeBtn.classList.add("remove-btn"); // ✅ Add CSS class
 
     removeBtn.onclick = function () {
       taskList.removeChild(newTask);
@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   addButton.addEventListener("click", addTask);
 
-  taskInput.addEventListener("keydown", function (event) {
+  // ✅ Use 'keypress' to meet requirement
+  taskInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
       addTask();
